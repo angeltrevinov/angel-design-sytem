@@ -9,6 +9,29 @@
     <script nomodule src="/build/angel-stencil-lib.js"></script>
   </head>
   <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+    <button id='modalBtn'>Open Modal</button>
+    <angel-modal-component id='modal' visible='false' modal-title="This is a modal">
+      <div>
+        <span>content</span>
+        <span>content</span>
+        <span>content</span>
+        <span>content</span>
+        <span>content</span>
+      </div>
+    </angel-modal-component>
+    <div>This is a nomal text box</div>
+
+    <script>
+        const buttonModal = document.getElementById('modalBtn');
+        const modal = document.getElementById('modal');
+        buttonModal.addEventListener('click', () => {
+          modal.visible = true;
+        });
+
+        modal.addEventListener('closedModal', (event) => {
+          console.log(event.detail);
+          modal.visible = false;
+        });
+    </script>
   </body>
 </html>

@@ -7,4 +7,4 @@ import type { JSX } from 'angel-stencil-lib';
 
 
 
-export const MyComponent = /*@__PURE__*/createReactComponent<JSX.MyComponent, HTMLMyComponentElement>('my-component');
+export const AngelModalComponent = /*@__PURE__*/createReactComponent<JSX.AngelModalComponent, HTMLAngelModalComponentElement>('angel-modal-component');

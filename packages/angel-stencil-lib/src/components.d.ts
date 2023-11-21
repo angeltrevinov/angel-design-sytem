@@ -6,56 +6,52 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface AngelModalComponent {
+        "modalTitle": string;
+        "visible": boolean;
     }
 }
+export interface AngelModalComponentCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAngelModalComponentElement;
+}
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLAngelModalComponentElementEventMap {
+        "closedModal": string;
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    interface HTMLAngelModalComponentElement extends Components.AngelModalComponent, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLAngelModalComponentElementEventMap>(type: K, listener: (this: HTMLAngelModalComponentElement, ev: AngelModalComponentCustomEvent<HTMLAngelModalComponentElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLAngelModalComponentElementEventMap>(type: K, listener: (this: HTMLAngelModalComponentElement, ev: AngelModalComponentCustomEvent<HTMLAngelModalComponentElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLAngelModalComponentElement: {
+        prototype: HTMLAngelModalComponentElement;
+        new (): HTMLAngelModalComponentElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "angel-modal-component": HTMLAngelModalComponentElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface AngelModalComponent {
+        "modalTitle"?: string;
+        "onClosedModal"?: (event: AngelModalComponentCustomEvent<string>) => void;
+        "visible"?: boolean;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "angel-modal-component": AngelModalComponent;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "angel-modal-component": LocalJSX.AngelModalComponent & JSXBase.HTMLAttributes<HTMLAngelModalComponentElement>;
         }
     }
 }
