@@ -1,29 +1,25 @@
 {
-  "name": "react-workspace",
+  "name": "angel-react-lib",
   "version": "0.0.0",
-  "description": "The wrapper for the components to work in react",
+  "description": "A React wrapper for our Stencil components",
   "author": "angeltrevinov <angel.trevinov@gmail.com>",
-  "homepage": "",
+  "homepage": "https://github.com/angeltrevinov/angel-design-sytem#readme",
   "license": "ISC",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+  "scripts": {
+    "test": "node ./__tests__/angel-react-lib.test.js",
+    "build": "npm run tsc",
+    "tsc": "tsc -p . --outDir ./dist"
   },
   "files": [
     "dist"
   ],
-  "scripts": {
-    "test": "node ./__tests__/react-library.test.js",
-    "build": "npm run tsc",
-    "tsc": "tsc -p . --outDir ./dist"
-  },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "stencil-library": "*"
+    "angel-stencil-lib": "*"
   }
 }
