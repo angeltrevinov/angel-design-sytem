@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, Prop, h } from "@stencil/core";
+import { Component, Event, EventEmitter, Host, Prop, h } from "@stencil/core";
 
 @Component({
     tag: 'angel-modal-component',
@@ -20,6 +20,8 @@ export class AngelModalComponent {
     render() {
         if (this.visible) {            
             return (
+                <Host>
+
                 <div class='modal__mask'>
                     <div class='modal__container'>
                         <section>{this.modalTitle}</section>
@@ -36,6 +38,7 @@ export class AngelModalComponent {
                         </section>
                     </div>
                 </div>
+                </Host>
             );
         }
     }

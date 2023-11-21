@@ -1,6 +1,8 @@
-section {
-    background-color: violet;
+div {
+  section {
+    background-color: var(--violet-color);
   }
+}
   
   .modal__mask {
     position: fixed;
