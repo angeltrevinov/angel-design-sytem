@@ -9,7 +9,7 @@
     <script nomodule src="/build/angel-stencil-lib.js"></script>
   </head>
   <body>
-    <button id='modalBtn'>Open Modal</button>
+    <angel-button-component id="customBtn" type-btn="primary">Open Modal</angel-button-component>
     <angel-modal-component id='modal' visible='false' modal-title="This is a modal">
       <div>
         <span>content</span>
@@ -21,10 +21,18 @@
     </angel-modal-component>
     <div>This is a nomal text box</div>
 
+    <div>
+      <angel-button-component id="customBtn">Test</angel-button-component>
+      <angel-button-component id="customBtn" type-btn="secondary">Test</angel-button-component>
+      <angel-button-component id="customBtn" type-btn="success">Test</angel-button-component>
+      <angel-button-component id="customBtn" type-btn="warning">Test</angel-button-component>
+      <angel-button-component id="customBtn" type-btn="danger">Test</angel-button-component>
+    </div>
+
     <script>
-        const buttonModal = document.getElementById('modalBtn');
-        const modal = document.getElementById('modal');
-        buttonModal.addEventListener('click', () => {
+        const customBtn = document.getElementById('customBtn');
+
+        customBtn.addEventListener('click', () => {
           modal.visible = true;
         });
 
